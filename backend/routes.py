@@ -1,6 +1,7 @@
 from flask import request, jsonify
 from config import app, db
 from models import Recipe
+from flask_cors import CORS, cross_origin
 
 
 @app.route("/recipies", methods=["GET"])

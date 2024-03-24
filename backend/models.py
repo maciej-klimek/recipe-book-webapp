@@ -1,5 +1,6 @@
 from config import db
 
+
 class Recipe(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -13,8 +14,8 @@ class Recipe(db.Model):
         return {
             "id": self.id,
             "title": self.title,
-            "prepTime": self.prep_time,
             "recipeType": self.recipe_type,
+            "prepTime": self.prep_time,
             "ingredientList": self.ingredient_list,
             "instructions": self.instructions
         }
