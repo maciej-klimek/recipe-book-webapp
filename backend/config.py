@@ -7,5 +7,6 @@ CORS(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///recipe_database.db"
 app.config["SQLALCHEMY_DATABASE_TRACK_MODIFICATIONS"] = False
+app.config["UPLOAD_FOLDER"] = "static/images"
 
 db = SQLAlchemy(app)

@@ -11,7 +11,7 @@ const RecipeList = ({ recipes, updateRecipe, updateCallback }) => {
       alert(responseData.message);
     } else {
       updateCallback();
-      alert("giiiit");
+      alert("Recipe deleted");
     }
   };
 
@@ -26,22 +26,34 @@ const RecipeList = ({ recipes, updateRecipe, updateCallback }) => {
             <th>Preparation Time</th>
             <th>Ingredient List</th>
             <th>Instructions</th>
+            <th>Image</th>
           </tr>
         </thead>
         <tbody>
-          {recipes.map((recipe) => (
-            <tr key={recipe.id}>
-              <td>{recipe.title}</td>
-              <td>{recipe.recipeType}</td>
-              <td>{recipe.prepTime}</td>
-              <td>{recipe.ingredientList}</td>
-              <td>{recipe.instructions}</td>
-              <td>
-                <button onClick={() => updateRecipe(recipe)}>Update</button>
-                <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
-              </td>
-            </tr>
-          ))}
+          {recipes.map((recipe) => {
+            return (
+              <tr key={recipe.id}>
+                <td>
+                  <img
+                    src={`http://127.0.0.1:5000/${recipe.image_path}`}
+                    alt={recipe.title}
+                    style={{ width: "100px" }}
+                  />
+                </td>
+                <td>{recipe.title}</td>
+                <td>{recipe.recipeType}</td>
+                <td>{recipe.prepTime}</td>
+                <td>{recipe.ingredientList}</td>
+                <td>{recipe.instructions}</td>
+                <td>
+                  <button onClick={() => updateRecipe(recipe)}>Update</button>
+                  <button onClick={() => deleteRecipe(recipe.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
