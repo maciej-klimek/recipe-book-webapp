@@ -1,3 +1,5 @@
+import "./RecipeList.css";
+
 const RecipeList = ({ recipes, updateRecipe, updateCallback }) => {
   const deleteRecipe = async (id) => {
     const url = `http://127.0.0.1:5000/delete_recipe/${id}`;
@@ -16,46 +18,34 @@ const RecipeList = ({ recipes, updateRecipe, updateCallback }) => {
   };
 
   return (
-    <div>
-      <h1>Recipes</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Recipe Type</th>
-            <th>Preparation Time</th>
-            <th>Ingredient List</th>
-            <th>Instructions</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          {recipes.map((recipe) => {
-            return (
-              <tr key={recipe.id}>
-                <td>
-                  <img
-                    src={`http://127.0.0.1:5000/${recipe.image_path}`}
-                    alt={recipe.title}
-                    style={{ width: "100px" }}
-                  />
-                </td>
-                <td>{recipe.title}</td>
-                <td>{recipe.recipeType}</td>
-                <td>{recipe.prepTime}</td>
-                <td>{recipe.ingredientList}</td>
-                <td>{recipe.instructions}</td>
-                <td>
-                  <button onClick={() => updateRecipe(recipe)}>Update</button>
-                  <button onClick={() => deleteRecipe(recipe.id)}>
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className="recipe-list">
+      <h1>Recipes:</h1>
+      {recipes.map((recipe) => (
+        <div className="recipe-item" key={recipe.id}>
+          <div className="recipe-details">
+            <div className="left-section">
+              <div className="recipe-title">{recipe.title}</div>
+              <div className="recipe-type-time">
+                <div>{recipe.recipeType}</div>
+                <div>{recipe.prepTime}</div>
+              </div>
+              <div className="recipe-difficulty">{recipe.recipeDiff}</div>
+              <div className="recipe-actions">
+                <button onClick={() => updateRecipe(recipe)}>Update</button>
+                <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
+              </div>
+            </div>
+            <div className="right-section">
+              <div className="recipe-image-container">
+                <img
+                  src={`http://127.0.0.1:5000/${recipe.image_path}`}
+                  alt={recipe.title}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

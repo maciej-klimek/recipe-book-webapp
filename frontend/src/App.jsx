@@ -40,13 +40,17 @@ const App = () => {
   };
 
   return (
-    <>
-      <RecipeList
-        recipes={recipies}
-        updateRecipe={openUpdateRecipeForm}
-        updateCallback={onUpdate}
-      />
-      <button onClick={openAddRecipeForm}>Add a new recipe!</button>
+    <div className="content">
+      <div className="recipe-panel">
+        <RecipeList
+          recipes={recipies}
+          updateRecipe={openUpdateRecipeForm}
+          updateCallback={onUpdate}
+        />
+        <button className="add-recipe-btn" onClick={openAddRecipeForm}>
+          +
+        </button>
+      </div>
       {isRecipeFormOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -60,7 +64,7 @@ const App = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
   const [title, setTitle] = useState(existingRecipe.title || "");
   const [recipeType, setRecipeType] = useState(existingRecipe.recipeType || "");
   const [prepTime, setPrepTime] = useState(existingRecipe.prepTime || "");
+  const [recipeDiff, setRecipeDiff] = useState(existingRecipe.recipeDiff || "");
   const [ingredientList, setIngredientList] = useState(
     existingRecipe.ingredientList || ""
   );
@@ -23,6 +24,7 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
     const recipeData = {
       title,
       recipeType,
+      recipeDiff,
       prepTime,
       ingredientList,
       instructions,
@@ -66,6 +68,15 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
           id="recipeType"
           value={recipeType}
           onChange={(e) => setRecipeType(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="recipeDiff">Recipe difficulty:</label>
+        <input
+          type="text"
+          id="recipeDiff"
+          value={recipeDiff}
+          onChange={(e) => setRecipeDiff(e.target.value)}
         />
       </div>
       <div>
