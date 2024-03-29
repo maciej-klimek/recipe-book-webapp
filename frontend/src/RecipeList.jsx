@@ -1,4 +1,20 @@
 const RecipeList = ({ recipes, updateRecipe, updateCallback }) => {
+  const deleteRecipe = async (id) => {
+    const url = `http://127.0.0.1:5000/delete_recipe/${id}`;
+    const requestOptions = {
+      method: "DELETE",
+    };
+
+    const response = await fetch(url, requestOptions);
+    if (response.status !== 201 && response.status !== 200) {
+      const responseData = await response.json();
+      alert(responseData.message);
+    } else {
+      updateCallback();
+      alert("giiiit");
+    }
+  };
+
   return (
     <div>
       <h1>Recipes</h1>
@@ -22,7 +38,7 @@ const RecipeList = ({ recipes, updateRecipe, updateCallback }) => {
               <td>{recipe.instructions}</td>
               <td>
                 <button onClick={() => updateRecipe(recipe)}>Update</button>
-                <button>Delete</button>
+                <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
               </td>
             </tr>
           ))}

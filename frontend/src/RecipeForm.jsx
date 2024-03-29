@@ -27,7 +27,7 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
       "http://127.0.0.1:5000/" +
       (updating ? `update_recipe/${existingRecipe.id}` : "add_recipe");
     const requestOptions = {
-      method: "POST",
+      method: updating ? "PATCH" : "POST",
       headers: {
         "Content-type": "application/json",
       },
@@ -91,7 +91,9 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
           onChange={(e) => setInstructions(e.target.value)}
         />
       </div>
-      <button type="submit">Add this recipe.</button>
+      <button type="submit">
+        {updating ? "Update this recipe." : "Add this recipe."}
+      </button>
     </form>
   );
 };
