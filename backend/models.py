@@ -18,5 +18,6 @@ class Recipe(db.Model):
             "recipeType": self.recipe_type,
             "prepTime": self.prep_time,
             "ingredientList": self.ingredient_list,
-            "instructions": self.instructions
+            "instructions": self.instructions,
+            "image_path": self.image_path
         }
