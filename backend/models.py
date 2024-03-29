@@ -9,6 +9,7 @@ class Recipe(db.Model):
     recipe_type = db.Column(db.String(50), unique=False, nullable=True)
     ingredient_list = db.Column(db.String(2000), unique=False, nullable=False)
     instructions = db.Column(db.String(5000), unique=False, nullable=True)
+    image_path = db.Column(db.String(200), unique=False, nullable=True)
 
     def to_json(self):
         return {

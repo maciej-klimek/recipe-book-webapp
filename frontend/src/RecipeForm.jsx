@@ -10,11 +10,16 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
   const [instructions, setInstructions] = useState(
     existingRecipe.instructions || ""
   );
+  const [image, setImage] = useState();
 
   const updating = Object.entries(existingRecipe).length !== 0;
 
+  const handleImageUpload = async (e) => {
+    setImage(e.target.files[0]);
+  };
   const submitRecipe = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
     const recipeData = {
       title,
       recipeType,
@@ -23,15 +28,15 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
       instructions,
     };
 
+    formData.append("recipe_data", JSON.stringify(recipeData));
+    formData.append("image", image);
+
     const url =
       "http://127.0.0.1:5000/" +
       (updating ? `update_recipe/${existingRecipe.id}` : "add_recipe");
     const requestOptions = {
       method: updating ? "PATCH" : "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(recipeData),
+      body: formData,
     };
 
     const response = await fetch(url, requestOptions);
@@ -40,7 +45,6 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
       alert(responseData.message);
     } else {
       updateCallback();
-      alert("giiiit");
     }
   };
 
@@ -89,6 +93,15 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
           id="instructions"
           value={instructions}
           onChange={(e) => setInstructions(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="image">Recipe image:</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          onChange={(e) => handleImageUpload(e)}
         />
       </div>
       <button type="submit">
