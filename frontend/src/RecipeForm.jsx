@@ -90,8 +90,7 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
       </div>
       <div>
         <label htmlFor="ingredientList">Ingredient List:</label>
-        <input
-          type="text"
+        <textarea
           id="ingredientList"
           value={ingredientList}
           onChange={(e) => setIngredientList(e.target.value)}
@@ -99,8 +98,7 @@ const RecipeForm = ({ existingRecipe = {}, updateCallback }) => {
       </div>
       <div>
         <label htmlFor="instructions">Instructions:</label>
-        <input
-          type="text"
+        <textarea
           id="instructions"
           value={instructions}
           onChange={(e) => setInstructions(e.target.value)}

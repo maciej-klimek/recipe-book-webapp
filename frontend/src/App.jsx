@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <div className="content">
-      <div className="recipe-panel">
+      <div className="recipe-board">
         <RecipeList recipes={recipies} updateCallback={onUpdate} />
         <button className="add-recipe-btn" onClick={openAddRecipeForm}>
           +
