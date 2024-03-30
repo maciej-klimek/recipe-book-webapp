@@ -5,8 +5,8 @@ import "./App.css";
 
 const App = () => {
   const [recipies, setRecipies] = useState([]);
-  const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
   const [currentRecipe, setCurrentRecipe] = useState({});
+  const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
 
   useEffect(() => {
     fetchRecipies();
@@ -28,25 +28,16 @@ const App = () => {
     if (!isRecipeFormOpen) setIsRecipeFormOpen(true);
   };
 
-  const openUpdateRecipeForm = (recipe) => {
-    if (isRecipeFormOpen) return;
-    setCurrentRecipe(recipe);
-    setIsRecipeFormOpen(true);
-  };
-
-  const onUpdate = () => {
-    fetchRecipies();
+  const onUpdate = async () => {
+    console.log("Update");
     closeRecipeForm();
+    await fetchRecipies();
   };
 
   return (
     <div className="content">
       <div className="recipe-panel">
-        <RecipeList
-          recipes={recipies}
-          updateRecipe={openUpdateRecipeForm}
-          updateCallback={onUpdate}
-        />
+        <RecipeList recipes={recipies} updateCallback={onUpdate} />
         <button className="add-recipe-btn" onClick={openAddRecipeForm}>
           +
         </button>
