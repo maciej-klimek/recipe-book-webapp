@@ -74,7 +74,10 @@ const RecipePanel = ({ recipe, onClose, updateCallback }) => {
         {isUpdateFormOpen && (
           <div className="modal">
             <div className="modal-content">
-              <button className="close" onClick={closeUpdateRecipeForm}>
+              <button
+                className="form-close-button"
+                onClick={closeUpdateRecipeForm}
+              >
                 &times;
               </button>
               <RecipeForm existingRecipe={recipe} updateCallback={onUpdate} />

@@ -14,9 +14,9 @@ p {
 
 .content {
   font-family: "Space Mono";
-  margin-top: 5vh;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
   align-items: center;
   z-index: 100;
 }
@@ -58,5 +58,14 @@ p {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+
+.form-close-button {
+  font-size: 30px;
+  padding: 0 12px 5px 12px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
 

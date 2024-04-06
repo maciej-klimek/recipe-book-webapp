@@ -45,7 +45,7 @@ const App = () => {
       {isRecipeFormOpen && (
         <div className="modal">
           <div className="modal-content">
-            <button className="close" onClick={closeRecipeForm}>
+            <button className="form-close-button" onClick={closeRecipeForm}>
               &times;
             </button>
             <RecipeForm
