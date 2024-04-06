@@ -5,8 +5,8 @@ import "./App.css";
 
 const App = () => {
   const [recipies, setRecipies] = useState([]);
-  const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
   const [currentRecipe, setCurrentRecipe] = useState({});
+  const [isRecipeFormOpen, setIsRecipeFormOpen] = useState(false);
 
   useEffect(() => {
     fetchRecipies();
@@ -28,29 +28,24 @@ const App = () => {
     if (!isRecipeFormOpen) setIsRecipeFormOpen(true);
   };
 
-  const openUpdateRecipeForm = (recipe) => {
-    if (isRecipeFormOpen) return;
-    setCurrentRecipe(recipe);
-    setIsRecipeFormOpen(true);
-  };
-
-  const onUpdate = () => {
-    fetchRecipies();
+  const onUpdate = async () => {
+    console.log("Update");
     closeRecipeForm();
+    await fetchRecipies();
   };
 
   return (
-    <>
-      <RecipeList
-        recipes={recipies}
-        updateRecipe={openUpdateRecipeForm}
-        updateCallback={onUpdate}
-      />
-      <button onClick={openAddRecipeForm}>Add a new recipe!</button>
+    <div className="content">
+      <div className="recipe-board">
+        <RecipeList recipes={recipies} updateCallback={onUpdate} />
+        <button className="add-recipe-btn" onClick={openAddRecipeForm}>
+          +
+        </button>
+      </div>
       {isRecipeFormOpen && (
         <div className="modal">
           <div className="modal-content">
-            <button className="close" onClick={closeRecipeForm}>
+            <button className="form-close-button" onClick={closeRecipeForm}>
               &times;
             </button>
             <RecipeForm
@@ -60,7 +55,7 @@ const App = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

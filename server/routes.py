@@ -23,6 +23,7 @@ def add_new_recipe():
     recipe_data = json.loads(recipe_data_json)
     title = recipe_data.get("title")
     prep_time = recipe_data.get("prepTime")
+    recipe_difficulty = recipe_data.get("recipeDiff")
     recipe_type = recipe_data.get("recipeType")
     ingredient_list = recipe_data.get("ingredientList")
     instructions = recipe_data.get("instructions")
@@ -38,7 +39,7 @@ def add_new_recipe():
     if not title or not ingredient_list:
         return jsonify({"message": "You must include a title and an ingredients list to add a recipe."}), 400
 
-    new_recipe = Recipe(title=title, prep_time=prep_time, recipe_type=recipe_type,
+    new_recipe = Recipe(title=title, prep_time=prep_time, recipe_difficulty=recipe_difficulty, recipe_type=recipe_type,
                         ingredient_list=ingredient_list, instructions=instructions, image_path=image_path)
 
     try:
@@ -64,6 +65,8 @@ def update_recipe(recipe_id):
     recipe_data = json.loads(recipe_data_json)
     recipe.title = recipe_data.get("title", recipe.title)
     recipe.prep_time = recipe_data.get("prepTime", recipe.prep_time)
+    recipe.recipe_difficulty = recipe_data.get(
+        "recipeDiff", recipe.recipe_difficulty)
     recipe.recipe_type = recipe_data.get("recipeType", recipe.recipe_type)
     recipe.ingredient_list = recipe_data.get(
         "ingredientList", recipe.ingredient_list)

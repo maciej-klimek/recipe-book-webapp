@@ -1,0 +1,157 @@
+/* RecipePanel.css */
+
+.recipe-panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.recipe-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  height: 80vh;
+  min-width: 60vw;
+  max-width: 80vw;
+  background-color: rgb(255, 255, 255);
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.panel-left-column {
+  overflow: overlay;
+  scrollbar-width: none;
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px 30px;
+  border-right: solid 1px black;
+}
+.panel-right-column {
+  position: relative;
+  overflow: overlay;
+  scrollbar-width: none;
+  width: 40%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px 30px;
+}
+
+.panel-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.panel-update-button,
+.panel-delete-button {
+  margin-top: 10px;
+}
+
+.panel-close-button {
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.panel-recipe-title {
+  font-size: 30px;
+  margin: 0 0 30px 0;
+}
+
+.panel-recipe-photo img {
+  width: 100%;
+  height: 100%;
+  max-height: 40vh;
+  object-fit:cover;
+  border-radius: 8px;
+  
+}
+
+.panel-recipe-details {
+  margin-bottom: 20px;
+}
+
+.panel-recipe-details p {
+  margin: 5px 0;
+}
+
+.panel-recipe-ingredients {
+  margin-top: 40px;
+}
+.modal {
+  z-index: 5000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.delete-confirm,
+.cancel {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.delete-confirm {
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+.cancel {
+  background-color: #ccc;
+  color: black;
+  border: none;
+}
+
+.panel-update-button {
+  padding: 12px;
+  background-color: #69b85f;
+  font-size: 20px;
+}
+
+.panel-update-button:hover {
+  background-color: #4bdd6b;
+}
+
+.panel-delete-button {
+  padding: 12px;
+  background-color: #cf6666;
+  font-size: 20px;
+
+}
+
+.panel-delete-button:hover {
+  background-color: #ac4242;
+}

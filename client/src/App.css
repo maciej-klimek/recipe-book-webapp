@@ -1,0 +1,77 @@
+
+label {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+input {
+  margin: 10px;
+}
+
+p {
+  white-space: pre-line;
+}
+
+.content {
+  font-family: "Space Mono";
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+  z-index: 100;
+}
+
+.recipe-board{
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+
+
+.add-recipe-btn {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  z-index: 0;
+  background-color: black;
+  position: relative;
+  height: 50px;
+  width: 50px;
+  right:70px;
+  margin-top: 45px;
+  font-size: 35px;
+  color: white;
+  border-radius: 8px;
+  border: 1px;
+  transition-duration: 0.1s;
+}
+
+.add-recipe-btn:hover {
+  background-color: rgb(41, 58, 42);
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.form-close-button {
+  z-index: 1000;
+  font-size: 30px;
+  padding: 0 12px 5px 12px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.panel-close-button {
+    font-size: 30px;
+    padding: 0 12px 5px 12px;
+    position: absolute;
+}
+
