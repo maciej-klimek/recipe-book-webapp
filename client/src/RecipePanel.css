@@ -61,7 +61,7 @@
 }
 
 .panel-close-button {
-  z-index: 9000;
+  z-index: 100;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -92,6 +92,7 @@
   margin-top: 40px;
 }
 .modal {
+  z-index: 5000;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -134,3 +135,23 @@
   border: none;
 }
 
+.panel-update-button {
+  padding: 12px;
+  background-color: #69b85f;
+  font-size: 20px;
+}
+
+.panel-update-button:hover {
+  background-color: #4bdd6b;
+}
+
+.panel-delete-button {
+  padding: 12px;
+  background-color: #cf6666;
+  font-size: 20px;
+
+}
+
+.panel-delete-button:hover {
+  background-color: #ac4242;
+}

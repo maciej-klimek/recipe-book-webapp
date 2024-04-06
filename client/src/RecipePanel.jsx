@@ -67,7 +67,7 @@ const RecipePanel = ({ recipe, onClose, updateCallback }) => {
             </button>
           </div>
           <button className="panel-close-button" onClick={onClose}>
-            Close
+            &times;
           </button>
         </div>
 
